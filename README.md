@@ -142,8 +142,8 @@ npm publish
 
 它会在以下场景触发：
 
+- 推送版本 tag 时自动触发，例如 `v0.1.0`
 - GitHub Release 发布时自动触发
-- 手动触发
 
 使用前需要在 GitHub 仓库里配置：
 
@@ -152,6 +152,15 @@ npm publish
 
 这个 `NPM_TOKEN` 需要从你的 npm 账号里创建。
 如果你的 npm 账号开启了 2FA，建议使用 granular access token，并开启可用于发布的 bypass 2FA 配置。
+
+推荐的发版方式：
+
+```bash
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+或者在 GitHub 上创建一个 Release，也会触发自动发布。
 
 ## 组件用法
 

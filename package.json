@@ -1,0 +1,63 @@
+{
+  "name": "beautiful-animation",
+  "version": "0.1.0",
+  "description": "A beautiful animated Vue 3 component library.",
+  "type": "module",
+  "packageManager": "npm@10.8.2",
+  "main": "./dist/beautiful-animation.umd.cjs",
+  "module": "./dist/beautiful-animation.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/beautiful-animation.js",
+      "require": "./dist/beautiful-animation.umd.cjs"
+    },
+    "./style.css": "./dist/style.css"
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "*.css"
+  ],
+  "scripts": {
+    "dev": "vite --config vite.docs.config.ts",
+    "build": "vite build && vue-tsc -p tsconfig.build.json --declaration --emitDeclarationOnly --outDir dist",
+    "preview": "vite preview --config vite.docs.config.ts",
+    "docs:build": "vite build --config vite.docs.config.ts",
+    "pack:check": "npm pack --dry-run",
+    "prepublishOnly": "npm run build"
+  },
+  "keywords": [
+    "vue",
+    "vue3",
+    "components",
+    "input",
+    "animation",
+    "npm"
+  ],
+  "author": "Tian ChuanJian",
+  "license": "MIT",
+  "homepage": "https://tianchuanjian.github.io/beautiful-animation/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tianchuanjian/beautiful-animation.git"
+  },
+  "bugs": {
+    "url": "https://github.com/tianchuanjian/beautiful-animation/issues"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "vue": "^3.4.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "typescript": "^5.7.3",
+    "vite": "^6.0.7",
+    "vue": "^3.5.13",
+    "vue-tsc": "^2.2.0"
+  }
+}

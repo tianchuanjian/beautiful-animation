@@ -1,0 +1,348 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  color: #1f2937;
+  background:
+    radial-gradient(circle at top left, rgba(249, 115, 22, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(251, 191, 36, 0.2), transparent 24%),
+    linear-gradient(180deg, #fffaf3 0%, #fff 32%, #fff6eb 100%);
+  font-family: "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+.docs-shell {
+  display: grid;
+  grid-template-columns: 280px minmax(0, 1fr);
+  min-height: 100vh;
+}
+
+.docs-sidebar {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  padding: 24px;
+  border-right: 1px solid rgba(15, 23, 42, 0.08);
+  background: rgba(255, 255, 255, 0.68);
+  backdrop-filter: blur(18px);
+}
+
+.brand-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid rgba(249, 115, 22, 0.12);
+  border-radius: 22px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 246, 235, 0.94));
+  box-shadow: 0 16px 34px rgba(148, 163, 184, 0.16);
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 16px;
+  color: #fff7ed;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  background: linear-gradient(135deg, #fb923c, #f97316 55%, #ea580c);
+}
+
+.brand-name {
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.brand-subtitle {
+  margin-top: 4px;
+  font-size: 13px;
+  color: rgba(107, 114, 128, 0.9);
+}
+
+.docs-nav {
+  display: grid;
+  gap: 6px;
+  margin-top: 22px;
+}
+
+.docs-nav a,
+.sidebar-note {
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  border: 1px solid rgba(15, 23, 42, 0.06);
+}
+
+.docs-nav a {
+  color: #374151;
+  font-weight: 600;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease;
+}
+
+.docs-nav a:hover {
+  transform: translateX(4px);
+  border-color: rgba(249, 115, 22, 0.18);
+  background: rgba(255, 247, 237, 0.98);
+}
+
+.sidebar-note {
+  margin-top: 18px;
+  font-size: 13px;
+  color: rgba(55, 65, 81, 0.88);
+}
+
+.sidebar-note strong {
+  display: block;
+  margin-bottom: 6px;
+}
+
+.docs-main {
+  padding: 28px;
+}
+
+.hero-card,
+.doc-panel,
+.demo-card {
+  border: 1px solid rgba(15, 23, 42, 0.08);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 20px 50px rgba(148, 163, 184, 0.16);
+  backdrop-filter: blur(18px);
+}
+
+.hero-card {
+  position: relative;
+  padding: 32px;
+  overflow: hidden;
+}
+
+.hero-card::after {
+  content: "";
+  position: absolute;
+  inset: auto -80px -140px auto;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(249, 115, 22, 0.28), transparent 66%);
+  pointer-events: none;
+}
+
+.eyebrow,
+.section-kicker {
+  margin: 0 0 10px;
+  color: #f97316;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.hero-card h1 {
+  margin: 0;
+  max-width: 14ch;
+  font-size: clamp(36px, 5vw, 62px);
+  line-height: 1.02;
+  letter-spacing: -0.04em;
+  color: #111827;
+}
+
+.hero-copy {
+  max-width: 72ch;
+  margin: 18px 0 0;
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(55, 65, 81, 0.88);
+}
+
+.hero-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.hero-metrics > div,
+.demo-meta > div {
+  padding: 16px 18px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(255, 247, 237, 0.96));
+}
+
+.hero-metrics span,
+.demo-meta span {
+  display: block;
+  font-size: 12px;
+  color: rgba(107, 114, 128, 0.92);
+}
+
+.hero-metrics strong,
+.demo-meta strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 18px;
+  color: #111827;
+}
+
+.docs-section {
+  margin-top: 28px;
+}
+
+.section-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.section-head h2 {
+  margin: 0;
+  font-size: 28px;
+  letter-spacing: -0.03em;
+}
+
+.section-desc {
+  max-width: 560px;
+  margin: 0;
+  color: rgba(75, 85, 99, 0.92);
+}
+
+.section-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.doc-panel,
+.demo-card {
+  padding: 22px;
+}
+
+.doc-panel h3,
+.demo-card h3 {
+  margin: 0 0 14px;
+  font-size: 18px;
+}
+
+.demo-card {
+  margin-bottom: 16px;
+}
+
+.demo-preview {
+  display: grid;
+  gap: 16px;
+}
+
+.demo-preview--buttons {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.demo-preview--buttons .ba-button:last-child {
+  grid-column: 1 / -1;
+}
+
+.demo-meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.code-block {
+  margin: 0;
+  padding: 18px;
+  overflow: auto;
+  border-radius: 20px;
+  background: #0f172a;
+  color: #f8fafc;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.bullet-list {
+  margin: 0;
+  padding-left: 18px;
+  color: rgba(55, 65, 81, 0.94);
+  line-height: 1.8;
+}
+
+.api-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow: hidden;
+}
+
+.api-table th,
+.api-table td {
+  padding: 14px 12px;
+  border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  text-align: left;
+  vertical-align: top;
+  font-size: 14px;
+}
+
+.api-table th {
+  color: rgba(15, 23, 42, 0.82);
+  font-size: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 1100px) {
+  .docs-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .docs-sidebar {
+    position: relative;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+  }
+}
+
+@media (max-width: 760px) {
+  .docs-main {
+    padding: 18px;
+  }
+
+  .section-grid,
+  .hero-metrics,
+  .demo-meta,
+  .demo-preview--buttons {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-preview--buttons .ba-button:last-child {
+    grid-column: auto;
+  }
+
+  .section-head {
+    flex-direction: column;
+    align-items: start;
+  }
+
+  .hero-card,
+  .doc-panel,
+  .demo-card {
+    border-radius: 22px;
+  }
+}

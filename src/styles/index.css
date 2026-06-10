@@ -1,0 +1,338 @@
+:root {
+  --ba-color-text: #1f2937;
+  --ba-color-muted: #6b7280;
+  --ba-color-border: rgba(15, 23, 42, 0.12);
+  --ba-color-panel: rgba(255, 255, 255, 0.78);
+  --ba-color-panel-strong: rgba(255, 255, 255, 0.95);
+  --ba-color-dark: #0f172a;
+  --ba-color-primary: #f97316;
+  --ba-color-primary-soft: rgba(249, 115, 22, 0.18);
+  --ba-color-success: #10b981;
+  --ba-color-warning: #f59e0b;
+  --ba-color-error: #ef4444;
+  --ba-shadow-rest: 0 14px 30px rgba(148, 163, 184, 0.18);
+  --ba-shadow-focus: 0 18px 42px rgba(249, 115, 22, 0.22);
+  --ba-radius: 18px;
+  --ba-transition: 180ms ease;
+}
+
+.ba-button,
+.ba-input {
+  display: inline-flex;
+  color: var(--ba-color-text);
+  font-family: "Segoe UI", "PingFang SC", sans-serif;
+}
+
+.ba-button {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-height: 52px;
+  padding: 0 22px;
+  border: 1px solid transparent;
+  border-radius: var(--ba-radius);
+  outline: 0;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+  transition:
+    transform var(--ba-transition),
+    box-shadow var(--ba-transition),
+    background var(--ba-transition),
+    border-color var(--ba-transition),
+    opacity var(--ba-transition);
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.ba-button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background:
+    radial-gradient(circle at top, rgba(255, 255, 255, 0.34), transparent 40%),
+    linear-gradient(135deg, rgba(255, 255, 255, 0.08), transparent 55%);
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.ba-button > * {
+  position: relative;
+  z-index: 1;
+}
+
+.ba-button:hover {
+  transform: translateY(-2px);
+}
+
+.ba-button:active {
+  transform: translateY(0);
+}
+
+.ba-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.72;
+  transform: none;
+}
+
+.ba-button--primary {
+  color: #fff7ed;
+  background: linear-gradient(135deg, #fb923c, #f97316 58%, #ea580c);
+  box-shadow: 0 18px 30px rgba(249, 115, 22, 0.28);
+}
+
+.ba-button--secondary {
+  color: var(--ba-color-dark);
+  border-color: rgba(249, 115, 22, 0.2);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 247, 237, 0.92)) padding-box,
+    linear-gradient(135deg, rgba(249, 115, 22, 0.28), rgba(251, 191, 36, 0.22)) border-box;
+  box-shadow: var(--ba-shadow-rest);
+}
+
+.ba-button--ghost {
+  color: var(--ba-color-primary);
+  border-color: rgba(249, 115, 22, 0.18);
+  background: rgba(255, 247, 237, 0.64);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.42);
+}
+
+.ba-button--danger {
+  color: #fff7f7;
+  background: linear-gradient(135deg, #fb7185, #ef4444 58%, #dc2626);
+  box-shadow: 0 18px 30px rgba(239, 68, 68, 0.24);
+}
+
+.ba-button--sm {
+  min-height: 42px;
+  padding: 0 16px;
+  border-radius: 14px;
+  font-size: 14px;
+}
+
+.ba-button--lg {
+  min-height: 60px;
+  padding: 0 26px;
+  border-radius: 22px;
+  font-size: 16px;
+}
+
+.ba-button.is-block {
+  display: inline-flex;
+  width: 100%;
+}
+
+.ba-button.is-round {
+  border-radius: 999px;
+}
+
+.ba-button__spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  border-top-color: currentColor;
+  border-radius: 999px;
+  animation: ba-spin 800ms linear infinite;
+}
+
+.ba-button--secondary .ba-button__spinner,
+.ba-button--ghost .ba-button__spinner {
+  border-color: rgba(15, 23, 42, 0.16);
+}
+
+.ba-button__icon,
+.ba-button__label {
+  display: inline-flex;
+  align-items: center;
+}
+
+.ba-button__label {
+  justify-content: center;
+}
+
+.ba-input {
+  flex-direction: column;
+  gap: 8px;
+  width: min(100%, 360px);
+}
+
+.ba-input__label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(15, 23, 42, 0.8);
+  letter-spacing: 0.02em;
+}
+
+.ba-input__surface {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 52px;
+  padding: 0 14px;
+  border: 1px solid var(--ba-color-border);
+  border-radius: var(--ba-radius);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 247, 237, 0.92)) padding-box,
+    linear-gradient(135deg, rgba(249, 115, 22, 0.34), rgba(251, 191, 36, 0.24)) border-box;
+  box-shadow: var(--ba-shadow-rest);
+  backdrop-filter: blur(14px);
+  transition:
+    transform var(--ba-transition),
+    box-shadow var(--ba-transition),
+    border-color var(--ba-transition);
+}
+
+.ba-input__surface::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: calc(var(--ba-radius) - 1px);
+  background:
+    radial-gradient(circle at top right, rgba(255, 255, 255, 0.88), transparent 46%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.72), rgba(255, 255, 255, 0.18));
+  pointer-events: none;
+}
+
+.ba-input__field {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  width: 100%;
+  border: 0;
+  outline: 0;
+  padding: 0;
+  font-size: 15px;
+  color: var(--ba-color-text);
+  background: transparent;
+}
+
+.ba-input__field::placeholder {
+  color: rgba(107, 114, 128, 0.8);
+}
+
+.ba-input__affix,
+.ba-input__clear {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  color: var(--ba-color-muted);
+}
+
+.ba-input__affix--prefix {
+  margin-right: 10px;
+}
+
+.ba-input__affix--suffix {
+  margin-left: 10px;
+}
+
+.ba-input__clear {
+  margin-left: 8px;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  cursor: pointer;
+  font-size: 18px;
+  line-height: 1;
+  transition:
+    color var(--ba-transition),
+    transform var(--ba-transition);
+}
+
+.ba-input__clear:hover {
+  color: var(--ba-color-primary);
+  transform: scale(1.08);
+}
+
+.ba-input__hint {
+  font-size: 12px;
+  color: var(--ba-color-muted);
+}
+
+.ba-input.is-focused .ba-input__surface {
+  transform: translateY(-1px);
+  box-shadow: var(--ba-shadow-focus);
+}
+
+.ba-input.is-focused .ba-input__surface,
+.ba-input--success .ba-input__surface,
+.ba-input--warning .ba-input__surface,
+.ba-input--error .ba-input__surface {
+  border-color: transparent;
+}
+
+.ba-input--success .ba-input__surface {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(236, 253, 245, 0.92)) padding-box,
+    linear-gradient(135deg, rgba(16, 185, 129, 0.45), rgba(52, 211, 153, 0.24)) border-box;
+}
+
+.ba-input--warning .ba-input__surface {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(255, 251, 235, 0.92)) padding-box,
+    linear-gradient(135deg, rgba(245, 158, 11, 0.45), rgba(251, 191, 36, 0.24)) border-box;
+}
+
+.ba-input--error .ba-input__surface {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(254, 242, 242, 0.92)) padding-box,
+    linear-gradient(135deg, rgba(239, 68, 68, 0.45), rgba(248, 113, 113, 0.24)) border-box;
+}
+
+.ba-input--sm .ba-input__surface {
+  min-height: 44px;
+  border-radius: 14px;
+}
+
+.ba-input--sm .ba-input__field {
+  font-size: 14px;
+}
+
+.ba-input--lg .ba-input__surface {
+  min-height: 60px;
+  padding: 0 16px;
+  border-radius: 22px;
+}
+
+.ba-input--lg .ba-input__field {
+  font-size: 16px;
+}
+
+.ba-input--align-center .ba-input__field {
+  text-align: center;
+}
+
+.ba-input--align-right .ba-input__field {
+  text-align: right;
+}
+
+.ba-input.is-disabled {
+  opacity: 0.68;
+  cursor: not-allowed;
+}
+
+.ba-input.is-disabled .ba-input__surface,
+.ba-input.is-disabled .ba-input__field {
+  cursor: not-allowed;
+}
+
+@media (max-width: 640px) {
+  .ba-button,
+  .ba-input {
+    width: 100%;
+  }
+}
+
+@keyframes ba-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -61,6 +61,24 @@ export function formatAmountDisplay(value: string, useThousandSeparator: boolean
   return formattedInteger;
 }
 
+export function normalizeAmountOnBlur(value: string, decimalPlaces: number) {
+  const sanitized = sanitizeAmountInput(value, decimalPlaces);
+
+  if (!sanitized) {
+    return '';
+  }
+
+  const normalizedDecimalPlaces = Math.max(0, decimalPlaces);
+
+  if (normalizedDecimalPlaces === 0) {
+    return sanitized.split('.')[0] ?? sanitized;
+  }
+
+  const [integerPart, decimalPart = ''] = sanitized.split('.');
+
+  return `${integerPart}.${decimalPart.padEnd(normalizedDecimalPlaces, '0').slice(0, normalizedDecimalPlaces)}`;
+}
+
 export function toDisplayValue(value: string | number | null | undefined, decimalPlaces: number, useThousandSeparator: boolean) {
   const raw = value == null ? '' : String(value);
   const sanitized = sanitizeAmountInput(raw, decimalPlaces);

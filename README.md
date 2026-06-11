@@ -167,46 +167,43 @@ git push origin v0.1.0
 ### 全量注册
 
 ```ts
-import { createApp } from 'vue';
-import BeautifulAnimation from 'beautiful-animation';
-import 'beautiful-animation/style.css';
-import App from './App.vue';
+import { createApp } from "vue";
+import BeautifulAnimation from "beautiful-animation";
+import "beautiful-animation/style.css";
+import App from "./App.vue";
 
-createApp(App).use(BeautifulAnimation).mount('#app');
+createApp(App).use(BeautifulAnimation).mount("#app");
 ```
 
 ### 按需使用
 
 ```vue
 <script setup lang="ts">
-import { ref } from 'vue';
-import { BaButton, BaInput } from 'beautiful-animation';
-import 'beautiful-animation/style.css';
+import { ref } from "vue";
+import { BaButton, BaInput } from "beautiful-animation";
+import "beautiful-animation/style.css";
 
-const amount = ref('12888.50');
+const amount = ref("12888.50");
 
 function handleSubmit() {
-  console.log('submit value:', amount.value);
+	console.log("submit value:", amount.value);
 }
 </script>
 
 <template>
-  <div style="display: grid; gap: 16px; max-width: 420px;">
-    <BaInput
-      v-model="amount"
-      label="合同金额"
-      mode="amount"
-      :decimal-places="2"
-      :use-thousand-separator="true"
-      prefix="¥"
-      hint="展示自动带千分位，传出的值不带逗号"
-      clearable
-    />
+	<div style="display: grid; gap: 16px; max-width: 420px;">
+		<BaInput
+			v-model="amount"
+			label="合同金额"
+			mode="amount"
+			:decimal-places="2"
+			:use-thousand-separator="true"
+			prefix="¥"
+			hint="展示自动带千分位，传出的值不带逗号"
+			clearable />
 
-    <BaButton variant="primary" @click="handleSubmit">
-      立即提交
-    </BaButton>
-  </div>
+		<BaButton variant="primary" @click="handleSubmit"> 立即提交 </BaButton>
+	</div>
 </template>
 ```
 

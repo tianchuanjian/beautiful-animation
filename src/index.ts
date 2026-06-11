@@ -10,6 +10,7 @@ import BaCheckbox from './components/ba-checkbox/BaCheckbox.vue';
 import BaDivider from './components/ba-divider/BaDivider.vue';
 import BaEmpty from './components/ba-empty/BaEmpty.vue';
 import BaInput from './components/ba-input/BaInput.vue';
+import BaPopover from './components/ba-popover/BaPopover.vue';
 import BaProgress from './components/ba-progress/BaProgress.vue';
 import BaRadio from './components/ba-radio/BaRadio.vue';
 import BaSelect from './components/ba-select/BaSelect.vue';
@@ -32,6 +33,7 @@ export type { BaCheckboxProps, CheckboxSize } from './components/ba-checkbox/typ
 export type { BaDividerProps, DividerContentPosition, DividerDirection } from './components/ba-divider/types';
 export type { BaEmptyProps, EmptySize } from './components/ba-empty/types';
 export type { BaInputProps, InputAlign, InputMode, InputSize, InputStatus } from './components/ba-input/types';
+export type { BaPopoverProps, PopoverPlacement } from './components/ba-popover/types';
 export type { BaProgressProps, ProgressSize, ProgressStatus } from './components/ba-progress/types';
 export type { BaRadioProps, RadioSize, RadioValue } from './components/ba-radio/types';
 export type { BaSelectProps, SelectOption, SelectSize, SelectStatus, SelectValue } from './components/ba-select/types';
@@ -53,6 +55,7 @@ export { BaCheckbox };
 export { BaDivider };
 export { BaEmpty };
 export { BaInput };
+export { BaPopover };
 export { BaProgress };
 export { BaRadio };
 export { BaSelect };
@@ -76,6 +79,7 @@ const components = [
   BaDivider,
   BaEmpty,
   BaInput,
+  BaPopover,
   BaProgress,
   BaRadio,
   BaSelect,

@@ -1,6 +1,6 @@
 {
   "name": "beautiful-animation",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A beautiful animated Vue 3 component library.",
   "type": "module",
   "packageManager": "npm@10.8.2",

@@ -4,12 +4,13 @@ on:
   push:
     tags:
       - "v*"
-  release:
-    types:
-      - published
 
 permissions:
   contents: read
+
+concurrency:
+  group: publish-npm-${{ github.ref }}
+  cancel-in-progress: false
 
 jobs:
   publish:

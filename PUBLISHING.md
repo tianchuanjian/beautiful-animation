@@ -22,6 +22,14 @@ npm publish
 
 如果账号开启了 2FA，建议使用 npm token 发布。
 
+```bash
+改 package.json 版本
+提交到 main
+打 tag：git tag v0.1.2
+推 tag：git push origin v0.1.2
+GitHub Release 只是展示用，可建可不建，不负责再次发 npm
+```
+
 ## npm token
 
 推荐在 npm 官网创建 `Granular Access Token`，并开启 `Bypass two-factor authentication`。
@@ -48,6 +56,10 @@ npm publish
 ```bash
 git tag v0.1.0
 git push origin v0.1.0
+
+
+
+
 ```
 
 ## 维护建议
